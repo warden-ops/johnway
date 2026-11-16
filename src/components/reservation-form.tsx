@@ -9,11 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { PriceRequest } from "@/components/price-request";
 import { submitForm } from "@/lib/forms";
-import { formatPrice } from "@/lib/format";
 
 export function ReservationForm() {
-  const { lines, total, updateItem, removeItem, clear, count } = useCart();
+  const { lines, updateItem, removeItem, clear, count } = useCart();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
@@ -39,9 +39,7 @@ export function ReservationForm() {
         name: line.product.name,
         quantity: line.quantity,
         days: line.days,
-        lineTotal: line.lineTotal,
       })),
-      total,
     };
 
     try {
@@ -105,9 +103,7 @@ export function ReservationForm() {
               <p className="font-display text-2xl font-bold text-chocolate-deep uppercase">
                 {line.product.name}
               </p>
-              <p className="text-sm text-muted-foreground">
-                {formatPrice(line.product.pricePerDay)} / jour
-              </p>
+              <p className="text-sm text-muted-foreground">{line.product.tagline}</p>
             </div>
             <div className="flex items-center gap-3">
               <label className="text-xs tracking-wide uppercase">
@@ -138,9 +134,6 @@ export function ReservationForm() {
                   }
                 />
               </label>
-              <p className="min-w-24 text-right font-display text-2xl font-bold text-forest">
-                {formatPrice(line.lineTotal)}
-              </p>
               <button
                 type="button"
                 onClick={() => removeItem(line.product.slug)}
@@ -152,12 +145,10 @@ export function ReservationForm() {
             </div>
           </div>
         ))}
-        <p className="text-right font-display text-4xl font-bold text-chocolate-deep">
-          {formatPrice(total)}
-          <span className="block text-sm font-medium tracking-normal text-muted-foreground">
-            Estimation matériel, avant installation et taxes
-          </span>
-        </p>
+        <PriceRequest
+          variant="summary"
+          className="border border-chocolate/10 bg-beige/70 p-5"
+        />
       </div>
 
       <div className="space-y-4 border border-chocolate/10 bg-card p-6">

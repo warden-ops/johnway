@@ -26,7 +26,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link href="/produits" className="hover:text-beige">
-                Matériel & prix
+                Matériel
               </Link>
             </li>
             <li>

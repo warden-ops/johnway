@@ -1,67 +1,21 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { CoverImage } from "@/components/cover-image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const heroPoster = "/images/chapiteaux/hero-chapiteaux-festival-aerien.jpg";
-const heroPosterWebp = "/images/chapiteaux/hero-chapiteaux-festival-aerien.webp";
+const heroImage = "/images/chapiteaux/service-cle-en-main-chapiteau-ceremonie.jpg";
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [ready, setReady] = useState(false);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setReady(true));
-    const video = videoRef.current;
-    if (video) {
-      video.muted = true;
-      video.playsInline = true;
-      const play = () => {
-        video.play().catch(() => {
-          /* autoplay can be blocked; poster remains */
-        });
-      };
-      if (video.readyState >= 2) play();
-      else video.addEventListener("canplay", play, { once: true });
-    }
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
   return (
-    <section
-      className={cn(
-        "hero relative isolate flex min-h-[100svh] items-end overflow-hidden bg-chocolate-deep",
-        ready && "is-ready",
-      )}
-    >
+    <section className="hero relative isolate flex min-h-[100svh] items-end overflow-hidden bg-chocolate-deep">
       <CoverImage
-        src={heroPoster}
-        alt="Chapiteaux blancs vus du ciel lors d’un festival"
+        src={heroImage}
+        alt="Chapiteau blanc à pointes dans un jardin boisé, avec des chaises de cérémonie"
         priority
       />
-      <video
-        ref={videoRef}
-        className={cn(
-          "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
-          playing ? "opacity-100" : "opacity-0",
-        )}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={heroPosterWebp}
-        onPlaying={() => setPlaying(true)}
-      >
-        <source src="/videos/truck-arrive.mp4" type="video/mp4" />
-      </video>
-      <div className="video-grade absolute inset-0" />
+      <div className="hero-grade absolute inset-0" />
       <div className="grain" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-36 lg:px-8 lg:pb-20">
@@ -90,8 +44,8 @@ export function Hero() {
           className="hero-line mt-8 max-w-xl text-lg text-beige/85 sm:text-xl"
           style={{ ["--d" as string]: "0.95s" }}
         >
-          Chapiteaux, sono, installation, animation. Les camions arrivent. Le
-          site se lève. Vous célebrez.
+          Chapiteaux, sono, installation et animation. On monte le site, vous
+          célébrez.
         </p>
         <div
           className="hero-line mt-10 flex flex-col gap-3 sm:flex-row"

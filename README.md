@@ -17,8 +17,8 @@ Le site s’ouvre sur [http://127.0.0.1:43147](http://127.0.0.1:43147).
 
 ## Parcours
 
-- **Accueil** : hero vidéo (arrivée de camion), services, catalogue avec prix, à propos, témoignages, contact
-- **Matériel** : fiches produits, tarifs particuliers à la journée
+- **Accueil** : hero photo (chapiteau de cérémonie), services, catalogue, à propos, témoignages, contact
+- **Matériel** : fiches produits, prix sur demande, soumission via le formulaire de devis
 - **Réservation** : panier + envoi de demande (particuliers)
 - **Devis** : formulaire événement pour entreprises, festivals et municipal
 

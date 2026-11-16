@@ -5,7 +5,7 @@ import { ReservationForm } from "@/components/reservation-form";
 export const metadata: Metadata = {
   title: "Réservation",
   description:
-    "Envoyez une réservation de matériel événementiel au tarif particulier.",
+    "Envoyez une demande de réservation de matériel événementiel. Le montant est confirmé dans la soumission.",
 };
 
 export default function ReservationPage() {
@@ -20,8 +20,9 @@ export default function ReservationPage() {
           <span className="block text-forest">une réservation.</span>
         </h1>
         <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-          Dates, adresse, matériel. On confirme la disponibilité. L’installation
-          s’ajoute au besoin. Elle est déjà incluse sur les chapiteaux.
+          Dates, adresse, matériel. On confirme la disponibilité et le montant
+          dans la soumission. L’installation s’ajoute au besoin. Elle est déjà
+          incluse sur les chapiteaux.
         </p>
         <div className="mt-12">
           <ReservationForm />

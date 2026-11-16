@@ -22,8 +22,8 @@ const services = [
     n: "03",
     title: "Clé en main",
     text: "Un interlocuteur. Un devis. Un site qui tient. Mariage, corporatif, municipal : on porte le projet.",
-    image: "/images/chapiteaux/service-cle-en-main-chapiteau-ceremonie.jpg",
-    alt: "Chapiteau de cérémonie et chaises blanches dans un jardin",
+    image: "/images/chapiteaux/galerie-chapiteaux-complexe-aerien.jpg",
+    alt: "Complexe de chapiteaux blancs vu du ciel sur un grand terrain",
   },
   {
     n: "04",
