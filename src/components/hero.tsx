@@ -4,12 +4,17 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { CoverImage } from "@/components/cover-image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+const heroPoster = "/images/chapiteaux/hero-chapiteaux-festival-aerien.jpg";
+const heroPosterWebp = "/images/chapiteaux/hero-chapiteaux-festival-aerien.webp";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setReady(true));
@@ -31,20 +36,28 @@ export function Hero() {
   return (
     <section
       className={cn(
-        "hero relative isolate flex min-h-[100svh] items-end overflow-hidden bg-chocolate-deep bg-cover bg-center",
+        "hero relative isolate flex min-h-[100svh] items-end overflow-hidden bg-chocolate-deep",
         ready && "is-ready",
       )}
-      style={{ backgroundImage: "url(/images/hero-poster.jpg)" }}
     >
+      <CoverImage
+        src={heroPoster}
+        alt="Chapiteaux blancs vus du ciel lors d’un festival"
+        priority
+      />
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={cn(
+          "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
+          playing ? "opacity-100" : "opacity-0",
+        )}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/images/hero-poster.jpg"
+        poster={heroPosterWebp}
+        onPlaying={() => setPlaying(true)}
       >
         <source src="/videos/truck-arrive.mp4" type="video/mp4" />
       </video>
@@ -53,7 +66,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-36 lg:px-8 lg:pb-20">
         <p
-          className="hero-line font-display text-sm font-semibold tracking-[0.42em] text-forest-bright uppercase"
+          className="hero-line font-display text-sm font-semibold tracking-[0.42em] text-beige uppercase"
           style={{ ["--d" as string]: "0.1s" }}
         >
           Événementiel clé en main

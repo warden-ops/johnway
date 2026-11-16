@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { CoverImage } from "@/components/cover-image";
 import { Badge } from "@/components/ui/badge";
 import { formatPrice } from "@/lib/format";
 import { categories, products, type ProductCategory } from "@/lib/products";
@@ -59,13 +59,11 @@ export default function ProduitsPage() {
                 href={`/produits/${product.slug}`}
                 className="group overflow-hidden bg-card shadow-[0_16px_40px_rgba(26,16,12,0.07)]"
               >
-                <div className="relative aspect-[4/3]">
-                  <Image
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <CoverImage
                     src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    alt={product.imageAlt ?? product.name}
+                    className="transition-transform duration-700 group-hover:scale-105"
                   />
                   <Badge className="absolute top-3 left-3">
                     {product.installIncluded ? "Install. incluse" : "Option install."}

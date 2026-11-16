@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import { AddToReservation } from "@/components/add-to-reservation";
+import { CoverImage } from "@/components/cover-image";
 import { Badge } from "@/components/ui/badge";
 import { formatPrice } from "@/lib/format";
 import { categoryLabel, getProduct, products } from "@/lib/products";
@@ -34,12 +34,9 @@ export default async function ProductPage({ params }: Props) {
     <div className="bg-cream pt-28 pb-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-2 lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden bg-chocolate-deep">
-          <Image
+          <CoverImage
             src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            alt={product.imageAlt ?? product.name}
             priority
           />
         </div>
@@ -134,8 +131,11 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             {related.map((item) => (
               <Link key={item.slug} href={`/produits/${item.slug}`} className="bg-card">
-                <div className="relative aspect-[16/10]">
-                  <Image src={item.image} alt="" fill className="object-cover" sizes="33vw" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <CoverImage
+                    src={item.image}
+                    alt={item.imageAlt ?? item.name}
+                  />
                 </div>
                 <div className="p-4">
                   <p className="font-display text-xl font-bold uppercase">{item.name}</p>

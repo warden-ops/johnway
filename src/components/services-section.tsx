@@ -1,32 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
+import { CoverImage } from "@/components/cover-image";
 
 const services = [
   {
     n: "01",
     title: "Location",
     text: "Chapiteaux, tentes, sono, scène, mobilier, lumière, génératrices. Du kiosque 3×3 au village festival.",
-    image: "/images/tent-exterieur.jpg",
+    image: "/images/chapiteaux/service-location-village-chapiteaux.jpg",
+    alt: "Village de chapiteaux blancs alignés sur un terrain",
   },
   {
     n: "02",
     title: "Installation",
     text: "On arrive en convoi. On ancre, on câble, on aligne. Le lendemain, on reprend. Vous ne soulevez rien.",
     image: "/images/truck.jpg",
+    alt: "Camion d’installation en route vers un site",
   },
   {
     n: "03",
     title: "Clé en main",
     text: "Un interlocuteur. Un devis. Un site qui tient. Mariage, corporatif, municipal : on porte le projet.",
-    image: "/images/tables.jpg",
+    image: "/images/chapiteaux/service-cle-en-main-chapiteau-ceremonie.jpg",
+    alt: "Chapiteau de cérémonie et chaises blanches dans un jardin",
   },
   {
     n: "04",
     title: "Animation",
     text: "DJ, danse, ambiance. On ne livre pas que du matériel : on livre la soirée.",
     image: "/images/festival.jpg",
+    alt: "Soirée en plein air avec éclairage de festival",
   },
 ];
 
@@ -46,16 +50,14 @@ export function ServicesSection() {
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {services.map((service, index) => (
             <AnimateIn key={service.n} delay={index * 0.12}>
-              <article className="group relative min-h-[22rem] overflow-hidden">
-                <Image
+              <article className="group relative aspect-[3/2] overflow-hidden">
+                <CoverImage
                   src={service.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  alt={service.alt}
+                  className="transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-chocolate-deep via-chocolate-deep/55 to-black/10" />
-                <div className="relative flex h-full min-h-[22rem] flex-col justify-end p-7">
+                <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-7">
                   <span className="font-display text-5xl font-bold text-forest-bright">
                     {service.n}
                   </span>
