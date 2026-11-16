@@ -2,6 +2,14 @@ import { AnimateIn } from "@/components/animate-in";
 import { CoverImage } from "@/components/cover-image";
 import { cn } from "@/lib/utils";
 
+const placement = [
+  "sm:col-span-2 lg:col-span-4 lg:row-span-2",
+  "lg:col-start-5 lg:col-span-2 lg:row-start-1",
+  "lg:col-start-5 lg:col-span-2 lg:row-start-2",
+  "lg:col-span-3 lg:row-start-3",
+  "lg:col-start-4 lg:col-span-3 lg:row-start-3",
+];
+
 const shots = [
   {
     src: "/images/chapiteaux/galerie-chapiteaux-complexe-aerien.jpg",
@@ -47,17 +55,22 @@ export function GallerySection() {
           </p>
         </AnimateIn>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-5">
+        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-5">
           {shots.map((shot, index) => (
             <AnimateIn
               key={shot.src}
               delay={index * 0.08}
-              className={cn(
-                index === 0 ? "sm:col-span-2 lg:col-span-4" : "lg:col-span-2",
-              )}
+              className={cn(placement[index], "h-full")}
             >
-              <figure>
-                <div className="group relative aspect-[3/2] overflow-hidden bg-chocolate">
+              <figure className="flex h-full flex-col">
+                <div
+                  className={cn(
+                    "group relative overflow-hidden bg-chocolate",
+                    index === 0
+                      ? "aspect-[3/2] lg:aspect-auto lg:min-h-0 lg:flex-1"
+                      : "aspect-[3/2]",
+                  )}
+                >
                   <CoverImage
                     src={shot.src}
                     alt={shot.alt}
