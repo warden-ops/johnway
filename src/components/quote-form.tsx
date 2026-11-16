@@ -20,6 +20,7 @@ const eventTypes = [
 const serviceOptions = [
   "Chapiteaux / tentes",
   "Sono & scène",
+  "Photo booth",
   "Installation",
   "Animation",
   "Mobilier",

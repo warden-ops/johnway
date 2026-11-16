@@ -10,8 +10,9 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <Logo invert />
           <p className="mt-5 max-w-md text-lg leading-relaxed text-beige/75">
-            Location, installation, animation. Un seul interlocuteur pour que
-            votre festival, mariage ou gala tienne debout, et claque.
+            Location de chapiteaux, de sono et de photo booth, avec
+            installation et animation. Un seul interlocuteur pour que votre
+            festival, mariage ou gala tienne debout, et claque.
           </p>
         </div>
         <div>

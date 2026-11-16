@@ -1,6 +1,7 @@
 export type ProductCategory =
   | "tentes"
   | "sono"
+  | "animation"
   | "mobilier"
   | "eclairage"
   | "energie";
@@ -28,6 +29,7 @@ export const categories: { id: ProductCategory | "all"; label: string }[] = [
   { id: "all", label: "Tout" },
   { id: "tentes", label: "Tentes & chapiteaux" },
   { id: "sono", label: "Sono & scène" },
+  { id: "animation", label: "Animation" },
   { id: "mobilier", label: "Mobilier" },
   { id: "eclairage", label: "Éclairage" },
   { id: "energie", label: "Énergie" },
@@ -207,6 +209,39 @@ export const products: Product[] = [
     ],
   },
   {
+    slug: "photo-booth",
+    name: "Photo booth",
+    shortName: "Photo booth",
+    category: "animation",
+    tagline: "Mariage, fête, corporatif",
+    image: "/images/chapiteaux/produit-photo-booth-mariage.jpg",
+    imageAlt:
+      "Invité qui pose avec des accessoires de photo booth, lunettes et moustache, devant un fond de fête doré",
+    featured: true,
+    installIncluded: true,
+    installNote: "Installation et reprise incluses",
+    description:
+      "Borne photo pour un mariage, une fête ou un corporatif. Les invités posent avec les accessoires et repartent avec une impression ou un lien vers la galerie. On installe le fond, on reprend le lendemain.",
+    includes: [
+      "Borne photo",
+      "Impressions instantanées ou partage numérique",
+      "Accessoires",
+      "Fond",
+      "Galerie numérique",
+    ],
+    specs: [
+      { label: "Usage", value: "Mariage, fête, corporatif" },
+      { label: "Souvenirs", value: "Impression ou galerie numérique" },
+      { label: "Fond", value: "Inclus" },
+      { label: "Préposé", value: "En option" },
+    ],
+    options: [
+      "Préposé sur place",
+      "Fond personnalisé",
+      "Accessoires supplémentaires",
+    ],
+  },
+  {
     slug: "sono-200",
     name: "Système sono 200 personnes",
     shortName: "Sono 200",
@@ -365,6 +400,7 @@ export function featuredProducts() {
 export const categoryLabel: Record<ProductCategory, string> = {
   tentes: "Tentes & chapiteaux",
   sono: "Sono & scène",
+  animation: "Animation",
   mobilier: "Mobilier",
   eclairage: "Éclairage",
   energie: "Énergie",

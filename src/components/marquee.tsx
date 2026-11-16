@@ -6,6 +6,7 @@ const items = [
   "Afters",
   "Chapiteaux",
   "Sono",
+  "Photo booth",
   "Animation",
   "Clé en main",
 ];

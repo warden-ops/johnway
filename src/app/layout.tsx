@@ -33,6 +33,18 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
+  keywords: [
+    "Johnway",
+    "location chapiteau",
+    "tente événement",
+    "sono",
+    "photo booth",
+    "animation",
+    "mariage",
+    "festival",
+    "Québec",
+    "Estrie",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

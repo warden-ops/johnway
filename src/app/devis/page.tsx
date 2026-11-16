@@ -23,7 +23,7 @@ export default function DevisPage() {
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Pas une liste de SKU. Un projet : dates, jauge, terrain, sono,
-            chapiteau, animation. On revient avec une proposition claire,
+            chapiteau, photo booth, animation. On revient avec une proposition claire,
             installation comprise.
           </p>
           <ul className="mt-8 space-y-3 text-chocolate">

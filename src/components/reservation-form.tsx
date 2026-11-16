@@ -78,7 +78,7 @@ export function ReservationForm() {
           Panier vide
         </p>
         <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-          Ajoutez des tentes, de la sono ou du mobilier depuis le catalogue,
+          Ajoutez tentes, sono, photo booth ou mobilier depuis le catalogue,
           puis envoyez votre réservation.
         </p>
         <Link
