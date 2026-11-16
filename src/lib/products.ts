@@ -16,6 +16,7 @@ export type Product = {
   capacity?: string;
   size?: string;
   image: string;
+  imageAlt?: string;
   featured: boolean;
   installIncluded: boolean;
   installNote: string;
@@ -101,7 +102,8 @@ export const products: Product[] = [
     weekendPrice: 790,
     capacity: "40 à 60 personnes",
     size: "5 × 10 m",
-    image: "/images/tables.jpg",
+    image: "/images/chapiteaux/produit-chapiteau-5x10-jardin.jpg",
+    imageAlt: "Chapiteau blanc à deux pointes installé dans un jardin",
     featured: true,
     installIncluded: true,
     installNote: "Installation et démontage inclus",
@@ -135,7 +137,8 @@ export const products: Product[] = [
     weekendPrice: 2190,
     capacity: "150 à 220 personnes",
     size: "10 × 20 m",
-    image: "/images/tent-exterieur.jpg",
+    image: "/images/chapiteaux/produit-chapiteau-10x20-reception.jpg",
+    imageAlt: "Chapiteau de réception dressé pour un banquet, tables et chaises sous la toile",
     featured: true,
     installIncluded: true,
     installNote: "Installation, ancrage et démontage inclus",
@@ -198,7 +201,8 @@ export const products: Product[] = [
     weekendPrice: 640,
     capacity: "20 à 30 personnes",
     size: "5 × 5 m",
-    image: "/images/tent-mariage.jpg",
+    image: "/images/chapiteaux/produit-pagode-5x5-pelouse.jpg",
+    imageAlt: "Pagodes blanches posées sur une pelouse",
     featured: false,
     installIncluded: true,
     installNote: "Installation incluse",

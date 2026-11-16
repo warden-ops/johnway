@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { AnimateIn } from "@/components/animate-in";
+import { CoverImage } from "@/components/cover-image";
 import { Badge } from "@/components/ui/badge";
 import { formatPrice } from "@/lib/format";
 import { featuredProducts } from "@/lib/products";
@@ -39,12 +39,10 @@ export function ProductsSection() {
                 className="group block overflow-hidden bg-card shadow-[0_20px_50px_rgba(26,16,12,0.08)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
+                  <CoverImage
                     src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    alt={product.imageAlt ?? product.name}
+                    className="transition-transform duration-700 group-hover:scale-105"
                   />
                   <Badge className="absolute top-3 left-3">
                     {product.installIncluded ? "Install. incluse" : "Self + option"}
