@@ -24,8 +24,7 @@ type CartContextValue = {
   removeItem: (slug: string) => void;
   clear: () => void;
   count: number;
-  lines: { product: Product; quantity: number; days: number; lineTotal: number }[];
-  total: number;
+  lines: { product: Product; quantity: number; days: number }[];
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -111,7 +110,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
           product,
           quantity: item.quantity,
           days: item.days,
-          lineTotal: product.pricePerDay * item.quantity * item.days,
         };
       })
       .filter((line): line is NonNullable<typeof line> => line !== null);
@@ -124,7 +122,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       clear,
       count: items.reduce((sum, item) => sum + item.quantity, 0),
       lines,
-      total: lines.reduce((sum, line) => sum + line.lineTotal, 0),
     };
   }, [items, addItem, updateItem, removeItem, clear]);
 

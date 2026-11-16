@@ -11,8 +11,6 @@ export type Product = {
   shortName: string;
   category: ProductCategory;
   tagline: string;
-  pricePerDay: number;
-  weekendPrice?: number;
   capacity?: string;
   size?: string;
   image: string;
@@ -23,7 +21,7 @@ export type Product = {
   description: string;
   includes: string[];
   specs: { label: string; value: string }[];
-  options: { name: string; price: string }[];
+  options: string[];
 };
 
 export const categories: { id: ProductCategory | "all"; label: string }[] = [
@@ -42,14 +40,12 @@ export const products: Product[] = [
     shortName: "3 × 3 m",
     category: "tentes",
     tagline: "Cocktail, kiosque, entrée de site",
-    pricePerDay: 95,
-    weekendPrice: 160,
     capacity: "12 à 16 personnes",
     size: "3 × 3 m",
     image: "/images/wedding-garden.jpg",
     featured: true,
     installIncluded: false,
-    installNote: "Livraison et installation en option : 75 $",
+    installNote: "Livraison et installation en option",
     description:
       "Tente pliante professionnelle, structure aluminium et toile 600D. Idéale pour un bar extérieur, un kiosque de festival ou un abri d’accueil. Montage rapide, ancrage compris.",
     includes: ["Structure aluminium", "Toile blanche", "Sacs de transport", "Poids d’ancrage"],
@@ -60,8 +56,8 @@ export const products: Product[] = [
       { label: "Délai", value: "Réservation 48 h à l’avance" },
     ],
     options: [
-      { name: "Parois latérales (4)", price: "35 $/jour" },
-      { name: "Guirlandes LED", price: "25 $/jour" },
+      "Parois latérales (4)",
+      "Guirlandes LED",
     ],
   },
   {
@@ -70,14 +66,12 @@ export const products: Product[] = [
     shortName: "3 × 6 m",
     category: "tentes",
     tagline: "Buffet, inscription, coin lounge",
-    pricePerDay: 165,
-    weekendPrice: 275,
     capacity: "24 à 32 personnes",
     size: "3 × 6 m",
     image: "/images/outdoor-dining.jpg",
     featured: true,
     installIncluded: false,
-    installNote: "Livraison et installation en option : 95 $",
+    installNote: "Livraison et installation en option",
     description:
       "Double module 3 × 6 m pour un buffet, un vestiaire ou un espace photo. Toile tendue, look propre, prête pour un mariage de jardin ou un corporatif en terrasse.",
     includes: ["Deux modules couplés", "Toile blanche", "Ancrage", "Sacs de transport"],
@@ -88,8 +82,8 @@ export const products: Product[] = [
       { label: "Vent", value: "Ancrage obligatoire dès 30 km/h" },
     ],
     options: [
-      { name: "Parois complètes", price: "55 $/jour" },
-      { name: "Plancher bois 3 × 6", price: "120 $/jour" },
+      "Parois complètes",
+      "Plancher bois 3 × 6",
     ],
   },
   {
@@ -98,8 +92,6 @@ export const products: Product[] = [
     shortName: "5 × 10 m",
     category: "tentes",
     tagline: "Réception 40 à 60 convives",
-    pricePerDay: 475,
-    weekendPrice: 790,
     capacity: "40 à 60 personnes",
     size: "5 × 10 m",
     image: "/images/chapiteaux/produit-chapiteau-5x10-jardin.jpg",
@@ -122,9 +114,9 @@ export const products: Product[] = [
       { label: "Délai", value: "7 jours recommandés" },
     ],
     options: [
-      { name: "Parois cristal", price: "140 $/jour" },
-      { name: "Plancher 5 × 10", price: "285 $/jour" },
-      { name: "Chauffage", price: "95 $/jour" },
+      "Parois cristal",
+      "Plancher 5 × 10",
+      "Chauffage",
     ],
   },
   {
@@ -133,8 +125,6 @@ export const products: Product[] = [
     shortName: "10 × 20 m",
     category: "tentes",
     tagline: "Mariage, gala, festival",
-    pricePerDay: 1290,
-    weekendPrice: 2190,
     capacity: "150 à 220 personnes",
     size: "10 × 20 m",
     image: "/images/chapiteaux/produit-chapiteau-10x20-reception.jpg",
@@ -158,9 +148,9 @@ export const products: Product[] = [
       { label: "Délai", value: "14 jours recommandés" },
     ],
     options: [
-      { name: "Parois cristal", price: "320 $/jour" },
-      { name: "Plancher complet", price: "890 $/jour" },
-      { name: "Scène 4 × 6 m", price: "385 $/jour" },
+      "Parois cristal",
+      "Plancher complet",
+      "Scène 4 × 6 m",
     ],
   },
   {
@@ -169,8 +159,6 @@ export const products: Product[] = [
     shortName: "Stretch",
     category: "tentes",
     tagline: "Look festival, photo-ready",
-    pricePerDay: 720,
-    weekendPrice: 1190,
     capacity: "60 à 90 personnes",
     size: "8 × 12 m",
     image: "/images/cocktail.jpg",
@@ -187,8 +175,8 @@ export const products: Product[] = [
       { label: "Délai", value: "10 jours" },
     ],
     options: [
-      { name: "Guirlandes festives", price: "85 $/jour" },
-      { name: "Lounge 8 places", price: "240 $/jour" },
+      "Guirlandes festives",
+      "Lounge 8 places",
     ],
   },
   {
@@ -197,8 +185,6 @@ export const products: Product[] = [
     shortName: "Pagode",
     category: "tentes",
     tagline: "Cérémonie, bar, photo booth",
-    pricePerDay: 385,
-    weekendPrice: 640,
     capacity: "20 à 30 personnes",
     size: "5 × 5 m",
     image: "/images/chapiteaux/produit-pagode-5x5-pelouse.jpg",
@@ -216,8 +202,8 @@ export const products: Product[] = [
       { label: "Délai", value: "7 jours" },
     ],
     options: [
-      { name: "Parois cristal", price: "90 $/jour" },
-      { name: "Tapis de cérémonie", price: "45 $/jour" },
+      "Parois cristal",
+      "Tapis de cérémonie",
     ],
   },
   {
@@ -226,8 +212,6 @@ export const products: Product[] = [
     shortName: "Sono 200",
     category: "sono",
     tagline: "Mariage, cocktail, conférence",
-    pricePerDay: 275,
-    weekendPrice: 430,
     capacity: "jusqu’à 200 personnes",
     image: "/images/speakers.jpg",
     featured: true,
@@ -243,8 +227,8 @@ export const products: Product[] = [
       { label: "Délai", value: "48 h" },
     ],
     options: [
-      { name: "Technicien sur place", price: "55 $/h" },
-      { name: "Micro cravate extra", price: "35 $/jour" },
+      "Technicien sur place",
+      "Micro cravate extra",
     ],
   },
   {
@@ -253,8 +237,6 @@ export const products: Product[] = [
     shortName: "Sono 500",
     category: "sono",
     tagline: "Festival, plein air, corporatif",
-    pricePerDay: 495,
-    weekendPrice: 790,
     capacity: "jusqu’à 500 personnes",
     image: "/images/concert.jpg",
     featured: true,
@@ -270,8 +252,8 @@ export const products: Product[] = [
       { label: "Délai", value: "7 jours" },
     ],
     options: [
-      { name: "Technicien (bloc 4 h)", price: "220 $" },
-      { name: "Retours de scène", price: "85 $/jour" },
+      "Technicien (bloc 4 h)",
+      "Retours de scène",
     ],
   },
   {
@@ -280,11 +262,10 @@ export const products: Product[] = [
     shortName: "Tables",
     category: "mobilier",
     tagline: "Dîner assis, clé en main",
-    pricePerDay: 85,
     image: "/images/outdoor-dining.jpg",
     featured: false,
     installIncluded: false,
-    installNote: "Mise en place en option : 40 $",
+    installNote: "Mise en place en option",
     description:
       "Une table ronde 60 po, nappe sable, dix chaises banquet. Multipliez le pack selon vos invités. Simple, propre, prêt à dresser.",
     includes: ["1 table ronde 60 po", "Nappe", "10 chaises banquet"],
@@ -295,8 +276,8 @@ export const products: Product[] = [
       { label: "Délai", value: "72 h" },
     ],
     options: [
-      { name: "Housses de chaises", price: "2,50 $/chaise" },
-      { name: "Centre de table", price: "18 $/table" },
+      "Housses de chaises",
+      "Centre de table",
     ],
   },
   {
@@ -305,7 +286,6 @@ export const products: Product[] = [
     shortName: "Lumière",
     category: "eclairage",
     tagline: "Guirlandes, uplights, punch",
-    pricePerDay: 195,
     image: "/images/festival.jpg",
     featured: true,
     installIncluded: true,
@@ -320,8 +300,8 @@ export const products: Product[] = [
       { label: "Délai", value: "72 h" },
     ],
     options: [
-      { name: "Lyres extra (paire)", price: "75 $/jour" },
-      { name: "Projecteur logo", price: "55 $/jour" },
+      "Lyres extra (paire)",
+      "Projecteur logo",
     ],
   },
   {
@@ -330,11 +310,10 @@ export const products: Product[] = [
     shortName: "Gén. 6500 W",
     category: "energie",
     tagline: "Site hors réseau, festival, champ",
-    pricePerDay: 165,
     image: "/images/truck.jpg",
     featured: false,
     installIncluded: false,
-    installNote: "Livraison et mise en route : 65 $",
+    installNote: "Livraison et mise en route",
     description:
       "Quand le champ n’a pas de prise. 6500 W insonorisée, assez pour sono, éclairage et bar. On livre, on démarre, on reprend.",
     includes: ["Génératrice 6500 W", "Câbles de distribution", "Pleine d’essence au départ"],
@@ -345,8 +324,8 @@ export const products: Product[] = [
       { label: "Délai", value: "48 h" },
     ],
     options: [
-      { name: "Essence extra (jerrican)", price: "45 $" },
-      { name: "Distribution 4 circuits", price: "35 $/jour" },
+      "Essence extra (jerrican)",
+      "Distribution 4 circuits",
     ],
   },
   {
@@ -355,7 +334,6 @@ export const products: Product[] = [
     shortName: "Dancefloor",
     category: "mobilier",
     tagline: "Le premier slow, le dernier hit",
-    pricePerDay: 185,
     image: "/images/scene.jpg",
     featured: false,
     installIncluded: true,
@@ -370,8 +348,8 @@ export const products: Product[] = [
       { label: "Délai", value: "5 jours" },
     ],
     options: [
-      { name: "Extension 4 × 8 m", price: "320 $/jour" },
-      { name: "Éclairage dancefloor", price: "75 $/jour" },
+      "Extension 4 × 8 m",
+      "Éclairage dancefloor",
     ],
   },
 ];
