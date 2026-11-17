@@ -214,9 +214,9 @@ export const products: Product[] = [
     shortName: "Photo booth",
     category: "animation",
     tagline: "Mariage, fête, corporatif",
-    image: "/images/chapiteaux/produit-photo-booth-mariage.jpg",
+    image: "/images/chapiteaux/produit-photo-booth.jpg",
     imageAlt:
-      "Invité qui pose avec des accessoires de photo booth, lunettes et moustache, devant un fond de fête doré",
+      "Quatre invités posent devant un rideau de franges métalliques, sur une planche de photo booth",
     featured: true,
     installIncluded: true,
     installNote: "Installation et reprise incluses",
