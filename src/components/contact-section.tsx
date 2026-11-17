@@ -31,7 +31,7 @@ export function ContactSection() {
                   Réserver du matériel
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Choisissez tentes, sono ou tables, puis envoyez la
+                  Choisissez tentes, sono, photo booth ou tables, puis envoyez la
                   réservation. On confirme les dates, et le montant dans la
                   soumission.
                 </p>

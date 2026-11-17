@@ -1,6 +1,6 @@
 # Johnway
 
-Site vitrine de **Johnway**, entreprise d’événementiel clé en main en Estrie (Québec) : location de chapiteaux, tentes, sono et matériel, installation, animation et services connexes.
+Site vitrine de **Johnway**, entreprise d’événementiel clé en main en Estrie (Québec) : location de chapiteaux, tentes, sono, photo booth et matériel, installation, animation et services connexes.
 
 Positionnement : un seul interlocuteur pour festivals, mariages et événements, du premier camion au dernier toast.
 

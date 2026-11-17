@@ -44,8 +44,8 @@ export function Hero() {
           className="hero-line mt-8 max-w-xl text-lg text-beige/85 sm:text-xl"
           style={{ ["--d" as string]: "0.95s" }}
         >
-          Chapiteaux, sono, installation et animation. On monte le site, vous
-          célébrez.
+          Chapiteaux, sono, photo booth, installation et animation. On monte le
+          site, vous célébrez.
         </p>
         <div
           className="hero-line mt-10 flex flex-col gap-3 sm:flex-row"

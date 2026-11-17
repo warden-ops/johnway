@@ -3,7 +3,7 @@ export const site = {
   tagline: "Événementiel clé en main",
   punchline: "Votre événement. On s'occupe du reste.",
   description:
-    "Location de chapiteaux, tentes, sono et matériel événementiel. Installation, animation et coordination pour festivals, mariages et événements partout au Québec.",
+    "Location de chapiteaux, tentes, sono, photo booth et matériel événementiel. Installation, animation et coordination pour festivals, mariages et événements partout au Québec.",
   region: "Estrie · Québec",
   email: "info@johnway.ca",
   phoneLabel: "Demande par formulaire",

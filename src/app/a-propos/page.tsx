@@ -38,7 +38,7 @@ export default function AboutPage() {
               l’animation. On a fermé la boucle.
             </p>
             <p className="mt-4">
-              Location, installation, coordination, animation. Un convoi, une
+              Location, installation, coordination, animation et photo booth. Un convoi, une
               équipe, un responsable. On connaît la fête, et on connaît le vent,
               la boue, le 30 ampères qui saute à 22 h 40.
             </p>

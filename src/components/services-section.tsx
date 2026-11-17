@@ -7,7 +7,7 @@ const services = [
   {
     n: "01",
     title: "Location",
-    text: "Chapiteaux, tentes, sono, scène, mobilier, lumière, génératrices. Du kiosque 3×3 au village festival.",
+    text: "Chapiteaux, tentes, sono, scène, mobilier, lumière, génératrices, photo booth. Du kiosque 3×3 au village festival.",
     image: "/images/chapiteaux/service-location-village-chapiteaux.jpg",
     alt: "Village de chapiteaux blancs alignés sur un terrain",
   },
@@ -28,7 +28,7 @@ const services = [
   {
     n: "04",
     title: "Animation",
-    text: "DJ, danse, ambiance. On ne livre pas que du matériel : on livre la soirée.",
+    text: "DJ, danse, photo booth, ambiance. On ne livre pas que du matériel : on livre la soirée.",
     image: "/images/festival.jpg",
     alt: "Soirée en plein air avec éclairage de festival",
   },

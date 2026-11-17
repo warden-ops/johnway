@@ -42,7 +42,7 @@ export function AboutSection() {
           <AnimateIn delay={0.2}>
             <p className="mt-6 text-lg leading-relaxed text-chocolate/90">
               Johnway livre, installe et orchestre. Chapiteaux, tentes, speakers,
-              planchers, lumière, et l’équipe qui fait tenir le tout. Festivals,
+              photo booth, planchers, lumière, et l’équipe qui fait tenir le tout. Festivals,
               mariages, galas, sites municipaux : on prend le projet, on le pose
               au sol, on le rend spectaculaire.
             </p>
