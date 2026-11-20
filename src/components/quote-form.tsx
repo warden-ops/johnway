@@ -52,6 +52,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       location: String(data.get("location") || ""),
       services,
       notes: String(data.get("notes") || ""),
+      _honey: String(data.get("_honey") || ""),
     };
 
     try {
@@ -157,6 +158,15 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           placeholder="Dates de montage, contraintes de terrain, budget, animation…"
         />
       </div>
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: "none" }}
+        defaultValue=""
+      />
       {status === "error" ? (
         <p className="text-sm text-destructive">{message}</p>
       ) : null}

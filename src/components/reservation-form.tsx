@@ -40,6 +40,7 @@ export function ReservationForm() {
         quantity: line.quantity,
         days: line.days,
       })),
+      _honey: String(data.get("_honey") || ""),
     };
 
     try {
@@ -185,6 +186,15 @@ export function ReservationForm() {
           <Label htmlFor="notes">Notes</Label>
           <Textarea id="notes" name="notes" placeholder="Accès, horaire, installation…" />
         </div>
+        <input
+          type="text"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ display: "none" }}
+          defaultValue=""
+        />
         {status === "error" ? (
           <p className="text-sm text-destructive">{message}</p>
         ) : null}
