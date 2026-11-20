@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import { Logo } from "@/components/logo";
-import { useCart } from "@/components/cart-provider";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +17,6 @@ const links = [
 ];
 
 export function SiteHeader() {
-  const { count } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -62,11 +60,6 @@ export function SiteHeader() {
             )}
           >
             Réservation
-            {count > 0 ? (
-              <span className="ml-2 inline-flex size-5 items-center justify-center rounded-full bg-forest-bright text-[0.65rem] font-bold text-beige">
-                {count}
-              </span>
-            ) : null}
           </Link>
           <Link
             href="/devis"
@@ -105,7 +98,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="font-display text-3xl tracking-wide text-forest-bright uppercase"
             >
-              Réservation {count > 0 ? `(${count})` : ""}
+              Réservation
             </Link>
             <Link
               href="/devis"

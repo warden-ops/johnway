@@ -7,7 +7,7 @@ const services = [
   {
     n: "01",
     title: "Location",
-    text: "Chapiteaux, tentes, sono, scène, mobilier, lumière, génératrices, photo booth. Du kiosque 3×3 au village festival.",
+    text: "Chapiteaux, tentes, sono, scène, mobilier, lumière, génératrices, photo booth. De l’accueil jusqu’au village de festival.",
     image: "/images/chapiteaux/service-location-village-chapiteaux.jpg",
     alt: "Village de chapiteaux blancs alignés sur un terrain",
   },

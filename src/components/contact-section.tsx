@@ -21,7 +21,7 @@ export function ContactSection() {
           <AnimateIn delay={0.2}>
             <div className="mt-10 grid gap-4">
               <Link
-                href="/produits"
+                href="/reservation"
                 className="group border border-chocolate/15 bg-card p-6 transition-colors hover:border-forest hover:bg-beige"
               >
                 <p className="text-[0.68rem] tracking-[0.2em] text-forest uppercase">
@@ -31,8 +31,8 @@ export function ContactSection() {
                   Réserver du matériel
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Choisissez tentes, sono, photo booth ou tables, puis envoyez la
-                  réservation. On confirme les dates, et le montant dans la
+                  Cochez les catégories — tentes, chapiteaux, sono, photo booth —
+                  puis envoyez la réservation. On confirme les dates dans la
                   soumission.
                 </p>
               </Link>

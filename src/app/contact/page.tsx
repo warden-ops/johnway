@@ -42,7 +42,7 @@ export default function ContactPage() {
               href="/produits"
               className="inline-flex h-12 items-center justify-center bg-chocolate-deep px-6 text-xs font-bold tracking-[0.16em] text-beige uppercase"
             >
-              Catalogue
+              Matériel
             </Link>
           </div>
         </div>

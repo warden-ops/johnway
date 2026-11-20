@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Fraunces, Work_Sans } from "next/font/google";
 
-import { CartProvider } from "@/components/cart-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
@@ -54,11 +53,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${workSans.variable} ${display.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream text-foreground">
-        <CartProvider>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </CartProvider>
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );
