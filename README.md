@@ -22,7 +22,7 @@ Le site s’ouvre sur [http://127.0.0.1:43147](http://127.0.0.1:43147).
 - **Réservation** : demande par catégories (particuliers)
 - **Devis** : formulaire événement pour entreprises, festivals et municipal
 
-Les formulaires sont envoyés par courriel via FormSubmit (`info@johnway.ca`). Confirmez l’adresse au premier envoi si besoin.
+Les formulaires sont envoyés par courriel via FormSubmit (`serviceclient@lachancecommunication.com`). Confirmez l’adresse au premier envoi si besoin.
 
 ## Déploiement (johnway.ca)
 

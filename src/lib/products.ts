@@ -71,8 +71,8 @@ export const categories: Category[] = [
     label: "Énergie / génératrices",
     description:
       "Alimentation temporaire pour les sites sans branchement suffisant. Génératrices livrées, mises en route et reprises après l’événement.",
-    image: "/images/truck.jpg",
-    imageAlt: "Camion en route vers un site",
+    image: "/images/cocktail.jpg",
+    imageAlt: "Foule devant une scène éclairée",
   },
   {
     id: "plancher",
