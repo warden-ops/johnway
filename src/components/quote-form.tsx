@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useSyncExternalStore, type FormEvent } from "react";
 
 import { submitForm } from "@/lib/forms";
+import { quoteServiceOptions } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,22 +18,36 @@ const eventTypes = [
   "Autre",
 ];
 
-const serviceOptions = [
-  "Chapiteaux / tentes",
-  "Sono & scène",
-  "Photo booth",
-  "Installation",
-  "Animation",
-  "Mobilier",
-  "Éclairage",
-  "Coordination jour J",
-];
+const serviceOptions: readonly string[] = quoteServiceOptions;
+
+function subscribeToLocation(onStoreChange: () => void) {
+  window.addEventListener("popstate", onStoreChange);
+  return () => window.removeEventListener("popstate", onStoreChange);
+}
+
+function presetService() {
+  return new URLSearchParams(window.location.search).get("service") ?? "";
+}
 
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
+  const preset = useSyncExternalStore(subscribeToLocation, presetService, () => "");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
   const [message, setMessage] = useState("");
+  const [override, setOverride] = useState<string[] | null>(null);
+  const selected =
+    override ?? (preset && serviceOptions.includes(preset) ? [preset] : []);
+
+  function toggleService(option: string, checked: boolean) {
+    setOverride(
+      checked
+        ? selected.includes(option)
+          ? selected
+          : [...selected, option]
+        : selected.filter((item) => item !== option),
+    );
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -143,6 +158,8 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                 type="checkbox"
                 name="services"
                 value={option}
+                checked={selected.includes(option)}
+                onChange={(event) => toggleService(option, event.target.checked)}
                 className="size-4 accent-forest"
               />
               {option}

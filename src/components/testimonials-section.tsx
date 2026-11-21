@@ -3,13 +3,13 @@ import { AnimateIn } from "@/components/animate-in";
 const quotes = [
   {
     quote:
-      "Ils ont levé un chapiteau 10×20, la sono et le dancefloor pendant qu’on répétait. À 16 h, le site était un festival. À 2 h, il n’y avait plus une sangle au sol.",
+      "Ils ont levé un chapiteau, la sono et le plancher de danse pendant qu’on répétait. À 16 h, le site était un festival. À 2 h, il n’y avait plus une sangle au sol.",
     name: "Camille R.",
     role: "Direction, Festival des Hauts-Bois",
   },
   {
     quote:
-      "On voulait un mariage dehors sans paraître un camping. Tente stretch, lumière, tables, et quelqu’un qui savait où poser chaque mât. Clé en main, vraiment.",
+      "On voulait un mariage dehors sans paraître un camping. Chapiteau, lumière, mobilier, et quelqu’un qui savait où poser chaque mât. Clé en main, vraiment.",
     name: "Léa & Antoine",
     role: "Mariage, Magog",
   },

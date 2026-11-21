@@ -17,12 +17,12 @@ Le site s’ouvre sur [http://127.0.0.1:43147](http://127.0.0.1:43147).
 
 ## Parcours
 
-- **Accueil** : hero photo (chapiteau de cérémonie), services, catalogue, à propos, témoignages, contact
-- **Matériel** : fiches produits, prix sur demande, soumission via le formulaire de devis
-- **Réservation** : panier + envoi de demande (particuliers)
+- **Accueil** : hero photo (chapiteau de cérémonie), services, catégories de matériel, à propos, témoignages, contact
+- **Matériel** : une carte par catégorie, soumission via le formulaire de devis
+- **Réservation** : demande par catégories (particuliers)
 - **Devis** : formulaire événement pour entreprises, festivals et municipal
 
-Les formulaires sont envoyés par courriel via FormSubmit (`info@johnway.ca`). Confirmez l’adresse au premier envoi si besoin.
+Les formulaires sont envoyés par courriel via FormSubmit (`serviceclient@lachancecommunication.com`). Confirmez l’adresse au premier envoi si besoin.
 
 ## Déploiement (johnway.ca)
 
