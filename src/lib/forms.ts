@@ -6,6 +6,9 @@ const FORM_RECIPIENT = "serviceclient@lachancecommunication.com";
 
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${FORM_RECIPIENT}`;
 
+/** Relais des demandes, en plus du courriel FormSubmit. */
+const LEAD_RELAY_URL = "https://leads.devis-expert.ca/johnway/api/lead";
+
 const SUBJECT_BY_FORM: Record<string, string> = {
   devis: "Demande de devis - Johnway.ca",
   reservation: "Demande de réservation - Johnway.ca",
@@ -92,7 +95,97 @@ function submissionRejected(data: unknown) {
   return success === "false" || success === false;
 }
 
-export async function submitForm(payload: Record<string, unknown>) {
+function leadAccepted(data: unknown) {
+  if (!data || typeof data !== "object") return false;
+  return (data as { ok?: unknown }).ok === true;
+}
+
+function honeypotFilled(payload: Record<string, unknown>) {
+  if (payload._honey == null) return false;
+  return String(payload._honey) !== "";
+}
+
+function textField(value: unknown) {
+  if (typeof value === "string") return value;
+  if (value == null) return "";
+  return flattenField(value);
+}
+
+function stringList(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value.map((item) => flattenField(item)).filter((item) => item !== "");
+  }
+  if (typeof value === "string" && value.trim() !== "") return [value];
+  return [];
+}
+
+function categoriesField(value: unknown) {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => flattenField(item))
+      .filter((item) => item !== "")
+      .join(", ");
+  }
+  return flattenField(value);
+}
+
+function currentPage() {
+  if (typeof window === "undefined") return "";
+  return window.location.pathname;
+}
+
+function buildLeadBody(payload: Record<string, unknown>): Record<string, unknown> {
+  const page = currentPage();
+  const honey = payload._honey == null ? "" : String(payload._honey);
+
+  if (payload.form === "reservation") {
+    return {
+      form: "reservation",
+      name: textField(payload.name),
+      email: textField(payload.email),
+      phone: textField(payload.phone),
+      startDate: textField(payload.startDate),
+      endDate: textField(payload.endDate),
+      address: textField(payload.address),
+      notes: textField(payload.notes),
+      categories: categoriesField(payload.categories),
+      _honey: honey,
+      page,
+    };
+  }
+
+  if (payload.form === "devis") {
+    return {
+      form: "devis",
+      company: textField(payload.company),
+      contact: textField(payload.contact),
+      email: textField(payload.email),
+      phone: textField(payload.phone),
+      eventType: textField(payload.eventType),
+      date: textField(payload.date),
+      guests: textField(payload.guests),
+      location: textField(payload.location),
+      services: stringList(payload.services),
+      notes: textField(payload.notes),
+      _honey: honey,
+      page,
+    };
+  }
+
+  throw new Error("relay failed");
+}
+
+async function readJson(response: Response) {
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+/** Courriel FormSubmit. Le corps et le destinataire restent inchangés. */
+async function postFormSubmit(payload: Record<string, unknown>) {
   const response = await fetch(FORM_ENDPOINT, {
     method: "POST",
     headers: {
@@ -102,14 +195,46 @@ export async function submitForm(payload: Record<string, unknown>) {
     body: JSON.stringify(buildFormBody(payload)),
   });
 
-  let data: unknown = null;
-  try {
-    data = await response.json();
-  } catch {
-    data = null;
-  }
+  const data = await readJson(response);
 
   if (!response.ok || submissionRejected(data)) {
+    throw new Error("submit failed");
+  }
+}
+
+async function postLeadRelay(payload: Record<string, unknown>) {
+  const response = await fetch(LEAD_RELAY_URL, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(buildLeadBody(payload)),
+  });
+
+  const data = await readJson(response);
+
+  if (!response.ok || !leadAccepted(data)) {
+    throw new Error("relay failed");
+  }
+}
+
+export async function submitForm(payload: Record<string, unknown>) {
+  const results = await Promise.allSettled([
+    postFormSubmit(payload),
+    postLeadRelay(payload),
+  ]);
+
+  // Leurre rempli : le résultat visible reste celui de FormSubmit.
+  if (honeypotFilled(payload)) {
+    const email = results[0];
+    if (email.status === "rejected") {
+      throw email.reason instanceof Error ? email.reason : new Error("submit failed");
+    }
+    return;
+  }
+
+  if (results.every((result) => result.status === "rejected")) {
     throw new Error("submit failed");
   }
 }
